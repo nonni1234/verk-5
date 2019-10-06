@@ -1,0 +1,13 @@
+{% extends "default.html" %}
+{% block content %}
+<div class="vorurDiv">
+{% for vara in vorur %}
+<div class="varaDiv">
+    <h2 class="varaTitill">{{ vara[1] }}</h2>
+    <img class="voruMynd" src="/static/{{ vara[2] }}">
+    <a href="/add/{{ vara[0] }}" class="verd">Verð: {{ vara[3] }}</a>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

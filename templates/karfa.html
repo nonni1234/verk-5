@@ -1,0 +1,22 @@
+{% extends "karfa-default.html" %}
+{% block title %}<h1 class="karfaTitill">Karfa</h1>{% endblock %}
+{% block content %}
+{% if tom == False %}
+
+<div class="karfaVorur">
+    {% for x in karfa %}
+    <div class="karfaVara">
+        <p class="karfaNafn">{{ x[1] }}</p>
+    <img class="karfaMynd" src="/static/{{x[2]}}"><br>
+        <a href="/eyda/{{ x[0] }}" class="karfaVerd">{{ x[3] }}</a>
+    </div>
+    
+    {% endfor %}
+    <p class="summa">Samtals: {{ summa }}</p>
+</div>
+{% else %}
+    <h1>Karfan er tóm</h1>
+
+{% endif %}
+
+{% endblock %}

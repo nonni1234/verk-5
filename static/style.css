@@ -1,0 +1,95 @@
+/* Body, Header and Footer */
+body {
+    margin: 0;
+    background: cyan;
+}
+header {
+    padding: 10px 0; 
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    text-align: center;
+    background: lightcyan;
+}
+/* Index */
+
+.vorurDiv {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+.varaDiv {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    width: fit-content;
+    background: skyblue;
+    margin: 20px 20px;
+    padding: 15px;
+}
+.titill {
+    align-self: center;
+    font-family: fantasy;
+    color: darkblue;
+}
+.cartimg {
+    width: 86px;
+    height: 86px;
+}
+.cart {
+    margin-left: 20px;
+    align-self: center;
+}
+.verd {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+.logo {
+    margin-left: 20px;
+    height: 80%;
+    align-self: center;
+}
+.voruMynd {
+    width: 250px;
+    height: 250px;
+}
+
+/* karfa.html */
+.karfaContainer {
+    display: flex;
+    margin-top: 3em;
+}
+.karfaVorur {
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+    margin: auto;
+    padding: 20px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.karfaVara {
+    align-self: center;
+    border-bottom: 2px solid black;
+    padding: 10px 0;
+    text-align: center;
+}
+.karfaNafn {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.karfaMynd {
+    width: 150px;
+    height: 150px;
+}
+.karfaVerd {
+    font-weight: bold;
+}
+.summa {
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.karfaTitill {
+    align-self: center;
+}
