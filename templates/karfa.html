@@ -1,8 +1,10 @@
 {% extends "karfa-default.html" %}
-{% block title %}<h1 class="karfaTitill">Karfa</h1>{% endblock %}
+<div class="titillDiv">
+{% block title %}<h1>Karfa</h1>{% endblock %}
+</div>
 {% block content %}
 {% if tom == False %}
-
+<div class="karfaContainer">
 <div class="karfaVorur">
     {% for x in karfa %}
     <div class="karfaVara">
@@ -10,13 +12,34 @@
     <img class="karfaMynd" src="/static/{{x[2]}}"><br>
         <a href="/eyda/{{ x[0] }}" class="karfaVerd">{{ x[3] }}</a>
     </div>
-    
     {% endfor %}
     <p class="summa">Samtals: {{ summa }}</p>
+    <h2 style="text-align: center"><a href="/eyda">Eyða Körfu!</a></h2>
+    </div> 
+
+<div class="formDiv">
+<form method="post" action="result" accept-charset="UTF-8"class="karfaForm">
+    <fieldset>
+        <legend>Viðskiptavinur </legend>
+    <label>Nafn:
+        <input type="text" name="nafn" required placeholder="Nafn">
+    </label><br><br>
+    <label>E-Mail:
+        <input type="email" name="email" required placeholder="Email">
+    </label><br><br>
+    <label>Heimilisfang:
+        <input type="text" name="heimilisfang" required placeholder="Heimilisfang">
+    </label><br><br>
+    <label>Símanúmer:
+        <input type="text" name="simanumer" required placeholder="Símanúmer">
+    </label>
+    <input type="hidden" name="samtals"value="{{ summa }}"><br>
+    <input type="submit" value="Staðfesta" class="stadfesta">
+    </fieldset>
+</form>
 </div>
 {% else %}
     <h1>Karfan er tóm</h1>
-
+</div>
 {% endif %}
-
 {% endblock %}

@@ -1,6 +1,4 @@
 import os
-from flask import Flask
-import os
 from flask import Flask, render_template as template, session, url_for, request, redirect
 app = Flask(__name__)
 app.secret_key = os.urandom(8)
@@ -52,17 +50,35 @@ def add(id):
 @app.route("/eyda/<int:id>")
 def eydavoru(id):
     karfa = []
-    karfa = session["karfa"]
+    if len(session["karfa"]) > 0:
+        karfa = session["karfa"]
     index = 0
     for i in range(len(karfa)):
         if karfa[i][0] == id:
             index = i
-            break
-    karfa.remove(karfa[index])
+    karfa.pop(index)
     session["karfa"] = karfa
     
-    return redirect(url_for("index"))
+    return redirect(url_for("karfa"))
     
+@app.route("/eyda")
+def eyda():
+    session.pop("karfa", None)
+    return template("eyda.html", fjoldi=0)
+
+@app.route("/result", methods=["post"])
+def result():
+    if request.method == "POST":
+        kwargs={
+            "name":request.form["nafn"],
+            "email":request.form["email"],
+            "heimili":request.form["heimilisfang"],
+            "phone":request.form["simanumer"],
+            "price":request.form["samtals"]
+        }
+        eyda()
+        return template("result.html", **kwargs, fjoldi=0)
+
 @app.route("/logout",methods=["GET","POST"])
 def logout():
    session.pop("karfa",None)

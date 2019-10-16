@@ -1,0 +1,32 @@
+{% extends "default.html" %}
+{% block title %} Result {% endblock %}
+{% block content %}
+<h2 class="tableH2">Pöntun</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>Nafn</td>
+            <td>{{ name }}</td>
+        </tr>
+        <tr>
+            <td>Netfang</td>
+            <td>{{ email }}</td>
+        </tr>
+        <tr>
+            <td>Heimilisfang</td>
+            <td>{{ heimili }}</td>
+        </tr>
+        <tr>
+            <td>Sími</td>
+            <td>{{ phone }}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Samtals</td>
+            <td>{{ price }}</td>
+        </tr>
+    </tfoot>
+</table>
+<a href="{{ url_for('home') }}" id="homebtn"><h2>Aftur heim</h2></a>
+{% endblock %}
